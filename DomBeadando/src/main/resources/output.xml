@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><bajnokság xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="bajnoksag.xsd">
+    
+    
+    <verseny helyszín="Melbourne" id="1" időpont="2020-03-15" név="Ausztrál Nagydíj"/>
+    <verseny helyszín="Szahír" id="2" időpont="2020-03-22" név="Bahreini Nagydíj"/>
+    <verseny helyszín="Hanoi" id="3" időpont="2020-04-05" név="Vietnámi Nagydíj"/>
+    <verseny helyszín="Sanghaj" id="4" időpont="2020-04-19" név="Kínai Nagydíj"/>
+    <verseny helyszín="Zandvoort" id="5" időpont="2020-04-03" név="Holland Nagydíj"/>
+
+
+    <versenyző csapat="Renault" id="1" idcs="3" név="Nicko Hülkenberg"/>
+    <versenyző csapat="Renault" id="2" idcs="3" név="Daniel Ricciardo"/>
+    <versenyző csapat="Ferrari" id="3" idcs="2" név="Sebastian Vettel"/>
+    <versenyző csapat="Ferrari" id="4" idcs="2" név="Charles Leclerc"/>
+    <versenyző csapat="Mercedes" id="5" idcs="1" név="Lewis Hamilton"/>
+    <versenyző csapat="Mercedes" id="6" idcs="1" név="Valteri Bottas"/>
+    
+    <csapat id="1" név="Mercedes" világbajnoki_cím="5"/>
+    <csapat id="2" név="Ferrari" világbajnoki_cím="16"/>
+    <csapat id="3" név="Renault" világbajnoki_cím="2"/>
+    
+    <kocsi hengerűrtartalom="1600" id="1" lóerő="950" márka="Renault" rendszam="CCC-000" típus="R.S.19"/>
+    <kocsi hengerűrtartalom="1600" id="2" lóerő="950" márka="Renault" rendszam="CCC-111" típus="R.S.19"/>
+    <kocsi hengerűrtartalom="1600" id="3" lóerő="1000" márka="Ferrari" rendszam="BBB-000" típus="SF71H"/>
+    <kocsi hengerűrtartalom="1600" id="4" lóerő="1000" márka="Ferrari" rendszam="BBB-111" típus="SF71H"/>
+    <kocsi hengerűrtartalom="1600" id="5" lóerő="1000" márka="Mercedes" rendszam="AAA-000" típus="AMG F1 W09 EQ Power+"/>
+    <kocsi hengerűrtartalom="1600" id="6" lóerő="1000" márka="Mercedes" rendszam="AAA-111" típus="AMG F1 W09 EQ Power+"/>
+    
+    <kapcsolo idb="1" idcs="1"/>
+    <kapcsolo idb="2" idcs="1"/>
+    <kapcsolo idb="3" idcs="1"/>
+    <kapcsolo idb="2" idcs="2"/>
+    <kapcsolo idb="3" idcs="3"/>
+    <kapcsolo idb="3" idcs="2"/>
+    
+    <beszállító id="1" név="Bridgestone" telefonszám="01234567891"/>
+    <beszállító id="2" név="Brembo" telefonszám="01234567851"/>
+    <beszállító id="3" név="Yoshimura" telefonszám="01234562891"/>
+    
+    
+<csapat id="4" név="4" világbajnoki_cím="4"/></bajnokság>
