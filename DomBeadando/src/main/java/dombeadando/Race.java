@@ -9,7 +9,7 @@ public class Race {
 
 	private String place;
 	private String date;
-	private String id;
+	private int id;
 	private String name;
 
 	public String getPlace() {
@@ -28,11 +28,11 @@ public class Race {
 		this.date = date;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -50,7 +50,7 @@ public class Race {
 		Element element = (Element) node;
 		race.place = element.getAttribute("helyszín");
 		race.date = element.getAttribute("idõpont");
-		race.id = element.getAttribute("id");
+		race.id = Integer.parseInt(element.getAttribute("id"));
 		race.name = element.getAttribute("név");
 		return race;
 	}

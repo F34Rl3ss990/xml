@@ -104,26 +104,26 @@ public class Championship {
 		return championship;
 	}
 
-	public Racer getRacerById(String id) {
-		return racers.stream().filter(racer -> racer.getId().equals(id)).findFirst().orElseGet(Racer::new);
+	public Racer getRacerById(int i) {
+		return racers.stream().filter(racer -> racer.getId()==i).findFirst().orElseGet(Racer::new);
 	}
 
-	public Team getTeamById(String id) {
-		return teams.stream().filter(team -> team.getId().equals(id)).findFirst().orElseGet(Team::new);
+	public Team getTeamById(int i) {
+		return teams.stream().filter(team -> team.getId()==i).findFirst().orElseGet(Team::new);
 	}
 
-	public Importer getConnectorById(String id) {
-		return importers.stream().filter(importer -> importer.getId().equals(id)).findFirst().orElseGet(Importer::new);
+	public Importer getConnectorById(int i) {
+		return importers.stream().filter(importer -> importer.getId()==i).findFirst().orElseGet(Importer::new);
 	}
 
 	public void addCar(Car car) {
 		Element element = root.createElement(CAR_TAG);
 		element.setAttribute("márka", car.getBrand());
-		element.setAttribute("hengerûrtartalom", car.getCapacity());
-		element.setAttribute("lóerõ", car.getHorsepower());
+		element.setAttribute("hengerûrtartalom", String.valueOf(car.getCapacity()));
+		element.setAttribute("lóerõ", String.valueOf(car.getHorsepower()));
 		element.setAttribute("rendszam", car.getLicensePlate());
 		element.setAttribute("típus", car.getType());
-		element.setAttribute("id", car.getRacer().getId());
+		element.setAttribute("id", String.valueOf(car.getRacer().getId()));
 
 		root.getDocumentElement().appendChild(element);
 		cars.add(car);
@@ -131,8 +131,8 @@ public class Championship {
 
 	public void addConnector(Connector connector) {
 		Element element = root.createElement(CONNECTOR_TAG);
-		element.setAttribute("idb", connector.getImporter().getId());
-		element.setAttribute("idcs", connector.getTeam().getId());
+		element.setAttribute("idb", String.valueOf(connector.getImporter().getId()));
+		element.setAttribute("idcs", String.valueOf(connector.getTeam().getId()));
 
 		root.getDocumentElement().appendChild(element);
 		connectors.add(connector);
@@ -140,9 +140,9 @@ public class Championship {
 
 	public void addImporter(Importer importer) {
 		Element element = root.createElement(IMPORTER_TAG);
-		element.setAttribute("id", importer.getId());
+		element.setAttribute("id", String.valueOf(importer.getId()));
 		element.setAttribute("név", importer.getName());
-		element.setAttribute("telefonszám", importer.getPhoneNumber());
+		element.setAttribute("telefonszám", String.valueOf(importer.getPhoneNumber()));
 
 		root.getDocumentElement().appendChild(element);
 		importers.add(importer);
@@ -151,7 +151,7 @@ public class Championship {
 	public void addRace(Race race) {
 		Element element = root.createElement(RACE_TAG);
 		element.setAttribute("idõpont", race.getDate());
-		element.setAttribute("id", race.getId());
+		element.setAttribute("id", String.valueOf(race.getId()));
 		element.setAttribute("név", race.getName());
 		element.setAttribute("helyszín", race.getPlace());
 
@@ -161,10 +161,10 @@ public class Championship {
 
 	public void addRacer(Racer racer) {
 		Element element = root.createElement(RACER_TAG);
-		element.setAttribute("id", racer.getId());
+		element.setAttribute("id", String.valueOf(racer.getId()));
 		element.setAttribute("név", racer.getName());
 		element.setAttribute("csapat", racer.getTeam());
-		element.setAttribute("idcs", racer.getTTeam().getId());
+		element.setAttribute("idcs", String.valueOf(racer.getTTeam().getId()));
 
 		root.getDocumentElement().appendChild(element);
 		racers.add(racer);
@@ -172,71 +172,72 @@ public class Championship {
 
 	public void addTeam(Team team) {
 		Element element = root.createElement(TEAM_TAG);
-		element.setAttribute("id", team.getId());
+		element.setAttribute("id", String.valueOf(team.getId()));
 		element.setAttribute("név", team.getName());
-		element.setAttribute("világbajnoki_cím", team.getWorldChampionshipNumber());
+		element.setAttribute("világbajnoki_cím", String.valueOf(team.getWorldChampionshipNumber()));
 
 		root.getDocumentElement().appendChild(element);
 		teams.add(team);
 	}
 
-	public Team teamId(String id) {
+	public Team teamId(int id) {
 		for (Team team : teams) {
-			if (team.getId().equals(id)) {
+			if (team.getId()==id) {
 				return team;
 			}
 		}
 		return null;
 	}
 
-	public Racer racerId(String id) {
+	public Racer racerId(int id) {
 		for (Racer racer : racers) {
-			if (racer.getId().equals(id)) {
+			if (racer.getId()==id) {
 				return racer;
 			}
 		}
 		return null;
 	}
 
-	public Importer importerId(String id) {
+	public Importer importerId(int id) {
 		for (Importer importer : importers) {
-			if (importer.getId().equals(id)) {
+			if (importer.getId()==id) {
 				return importer;
 			}
 		}
 		return null;
 	}
 
-	public Car searchCarById(String id) {
+	public Car searchCarById(int id) {
+		
 		for (Car car : cars) {
-			if (car.getId().equals(id)) {
+			if (car.getId()==id) {
 				return car;
 			}
 		}
 		return null;
 	}
 
-	public Race searchRaceById(String id) {
+	public Race searchRaceById(int id) {
 		for (Race race : races) {
-			if (race.getId().equals(id)) {
+			if (race.getId()==id) {
 				return race;
 			}
 		}
 		return null;
 	}
 
-	public Importer searchImporterById(String id) {
+	public Importer searchImporterById(int id) {
 		for (Importer importer : importers) {
-			if (importer.getId().equals(id)) {
+			if (importer.getId()==id) {
 				return importer;
 			}
 		}
 		return null;
 	}
 
-	public Team searchTeamByImporter(String id) {
+	public Team searchTeamByImporter(int id) {
 		for (Connector connector : connectors) {
-			if (connector.getIdb().equals(id)) {
+			if (connector.getIdb()==id) {
 				for (Team team : teams) {
 					return team;
 				}
@@ -245,9 +246,9 @@ public class Championship {
 	return null;
 	}
 
-	public Importer searchImporterByTeam(String id) {
+	public Importer searchImporterByTeam(int id) {
 		for (Connector connector : connectors) {
-			if (connector.getIdcs().equals(id)) {
+			if (connector.getIdcs()==id) {
 				for (Importer importer : importers) {
 					return importer;
 				}
@@ -256,9 +257,9 @@ public class Championship {
 	return null;
 	}
 
-	public Racer searchRacerByTeam(String id) {
+	public Racer searchRacerByTeam(int id) {
 		for (Team team : teams) {
-			if (team.getId().equals(id)) {
+			if (team.getId()==id) {
 				for (Racer racer : racers) {
 					return racer;
 				}
@@ -267,9 +268,9 @@ public class Championship {
 		return null;
 	}
 
-	public Team searchTeamByRacer(String id) {
+	public Team searchTeamByRacer(int id) {
 		for (Racer racer : racers) {
-			if (racer.getId().equals(id)) {
+			if (racer.getId()==id) {
 				for (Team team : teams) {
 					return team;
 				}
@@ -278,59 +279,59 @@ public class Championship {
 	return null;
 	}
 
-	public String teamIdUniq(String id) {
+	public int teamIdUniq(int id) {
 		int a = 0;
 		for (Team team : teams) {
-			if (team.getId().equals(id)) {
+			if (team.getId()==id) {
 				a++;
 			}
 		}
 		if (a == 0) {
 			return id;
 		} else {
-			return null;
+			return -1;
 		}
 	}
 
-	public String importerIdUniq(String id) {
+	public int importerIdUniq(int id) {
 		int a = 0;
 		for (Importer importer : importers) {
-			if (importer.getId().equals(id)) {
+			if (importer.getId()==id) {
 				a++;
 			} 
 		}
 		if (a == 0) {
 			return id;
 		} else {
-			return null;
+			return -1;
 		}
 	}
 
-	public String raceIdUniq(String id) {
+	public int raceIdUniq(int id) {
 		int a = 0;
 		for (Race race : races) {
-			if (race.getId().equals(id)) {
+			if (race.getId()==id) {
 				a++;
 			} 
 		}
 		if (a == 0) {
 			return id;
 		} else {
-			return null;
+			return -1;
 		}
 	}
 
-	public String racerIdUniq(String id) {
+	public int racerIdUniq(int id) {
 		int a = 0;
 		for (Racer racer : racers) {
-			if (racer.getId().equals(id)) {
+			if (racer.getId()==id) {
 				a++;
 			} 
 		}
 		if (a == 0) {
 			return id;
 		} else {
-			return null;
+			return -1;
 		}
 	}
 

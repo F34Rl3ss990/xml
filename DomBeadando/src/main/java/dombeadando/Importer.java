@@ -6,8 +6,8 @@ import org.w3c.dom.Node;
 public class Importer {
 
 	private String name;
-	private String phoneNumber;
-	private String id;
+	private int phoneNumber;
+	private int id;
 
 	public String getName() {
 		return name;
@@ -17,19 +17,19 @@ public class Importer {
 		this.name = name;
 	}
 
-	public String getPhoneNumber() {
+	public int getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(String phoneNumber) {
+	public void setPhoneNumber(int phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -37,9 +37,9 @@ public class Importer {
 		Importer importer = new Importer();
 
 		Element element = (Element) node;
-		importer.id = element.getAttribute("id");
+		importer.id = Integer.parseInt(element.getAttribute("id"));
 		importer.name = element.getAttribute("név");
-		importer.phoneNumber = element.getAttribute("telefonszám");
+		importer.phoneNumber = Integer.parseInt(element.getAttribute("telefonszám"));
 		return importer;
 	}
 

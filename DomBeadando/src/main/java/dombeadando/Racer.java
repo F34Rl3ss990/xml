@@ -7,8 +7,8 @@ public class Racer {
 
 	private String name;
 	private String team;
-	private String id;
-	private String idcs;
+	private int id;
+	private int idcs;
 	private Team tTeam;
 
 	public String getName() {
@@ -27,19 +27,19 @@ public class Racer {
 		this.team = team;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getIdcs() {
+	public int getIdcs() {
 		return idcs;
 	}
 
-	public void setIdcs(String idcs) {
+	public void setIdcs(int idcs) {
 		this.idcs = idcs;
 	}
 
@@ -57,8 +57,8 @@ public class Racer {
 		Element element = (Element) node;
 		racer.name = element.getAttribute("név");
 		racer.team = element.getAttribute("csapat");
-		racer.id = element.getAttribute("id");
-		racer.idcs = element.getAttribute("idcs");
+		racer.id = Integer.parseInt(element.getAttribute("id"));
+		racer.idcs = Integer.parseInt(element.getAttribute("idcs"));
 		return racer;
 	}
 }
