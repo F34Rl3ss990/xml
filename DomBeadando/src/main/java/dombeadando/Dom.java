@@ -240,8 +240,10 @@ public class Dom {
 					String asd6 = sc.nextLine();
 
 					System.out.println("Beszállító Id: ");
+					int beszallitoID;
 					try {
 					int connectorb = sc.nextInt();
+					beszallitoID = connectorb;
 					
 						connector.setImporter(championship.importerId(connectorb));
 					} catch (Exception e) {
@@ -250,18 +252,21 @@ public class Dom {
 					}
 
 					System.out.println("Csapat Id: ");
+					int csapatID;
 					try {
 					int connectorcs = sc.nextInt();
-					
+					csapatID = connectorcs;
 						connector.setTeam(championship.teamId(connectorcs));
 					} catch (Exception e) {
 						System.out.println("Nincs ilyen idvel rendelkezõ csapat!");
 						break;
 					}
-
-					championship.addConnector(connector);
-					System.out.println("Elem sikeresn felvéve!");
-
+					if(championship.teamIdUniq(csapatID)==-1 && championship.importerIdUniq(beszallitoID)==-1) {
+						System.out.println("Ehhez a beszállítóhoz: "+beszallitoID+" már tartozik ez a csapat: "+csapatID+"!");
+					} else {
+						championship.addConnector(connector);
+						System.out.println("Elem sikeresn felvéve!");
+					}
 					break;
 				case 0:
 					break;

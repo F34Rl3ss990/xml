@@ -292,6 +292,9 @@ public class Championship {
 			return -1;
 		}
 	}
+	public int valami(int id) {
+		return id;
+	}
 
 	public int importerIdUniq(int id) {
 		int a = 0;
@@ -342,4 +345,6 @@ public class Championship {
 		StreamResult result = new StreamResult(new File(pathname));
 		transformer.transform(source, result);
 	}
+
+	
 }
