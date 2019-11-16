@@ -11,7 +11,7 @@ public class Car {
 	private String brand;
 	private String licensePlate;
 	private String id;
-	private Racer versenyzo;
+	private Racer racer;
 
 	public String getHorsepower() {
 		return horsepower;
@@ -61,24 +61,24 @@ public class Car {
 		this.id = id;
 	}
 
-	public Racer getVersenyzo() {
-		return versenyzo;
+	public Racer getRacer() {
+		return racer;
 	}
 
-	public void setVersenyzo(Racer versenyzo) {
-		this.versenyzo = versenyzo;
+	public void setRacer(Racer racer) {
+		this.racer = racer;
 	}
 
 	public static Car create(Node node) {
-		Car kocsi = new Car();
+		Car car = new Car();
 
 		Element element = (Element) node;
-		kocsi.horsepower = element.getAttribute("lóerõ");
-		kocsi.capacity = element.getAttribute("hengerûrtartalom");
-		kocsi.type = element.getAttribute("típus");
-		kocsi.brand = element.getAttribute("márka");
-		kocsi.licensePlate = element.getAttribute("rendszám");
-		kocsi.id = element.getAttribute("id");
-		return kocsi;
+		car.horsepower = element.getAttribute("lóerõ");
+		car.capacity = element.getAttribute("hengerûrtartalom");
+		car.type = element.getAttribute("típus");
+		car.brand = element.getAttribute("márka");
+		car.licensePlate = element.getAttribute("rendszám");
+		car.id = element.getAttribute("id");
+		return car;
 	}
 }

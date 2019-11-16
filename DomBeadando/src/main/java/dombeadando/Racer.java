@@ -9,7 +9,7 @@ public class Racer {
 	private String team;
 	private String id;
 	private String idcs;
-	private Team Csapat;
+	private Team tTeam;
 
 	public String getName() {
 		return name;
@@ -43,22 +43,22 @@ public class Racer {
 		this.idcs = idcs;
 	}
 
-	public Team getCsapat() {
-		return Csapat;
+	public Team getTTeam() {
+		return tTeam;
 	}
 
-	public void setCsapat(Team csapat) {
-		Csapat = csapat;
+	public void setTTeam(Team tTeam) {
+		this.tTeam = tTeam;
 	}
 
 	public static Racer create(Node node) {
-		Racer versenyzo = new Racer();
+		Racer racer = new Racer();
 
 		Element element = (Element) node;
-		versenyzo.name = element.getAttribute("név");
-		versenyzo.team = element.getAttribute("csapat");
-		versenyzo.id = element.getAttribute("id");
-		versenyzo.idcs = element.getAttribute("idcs");
-		return versenyzo;
+		racer.name = element.getAttribute("név");
+		racer.team = element.getAttribute("csapat");
+		racer.id = element.getAttribute("id");
+		racer.idcs = element.getAttribute("idcs");
+		return racer;
 	}
 }

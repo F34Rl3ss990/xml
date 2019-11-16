@@ -45,14 +45,14 @@ public class Race {
 	}
 
 	public static Race create(Node node) {
-		Race verseny = new Race();
+		Race race = new Race();
 
 		Element element = (Element) node;
-		verseny.place = element.getAttribute("helyszín");
-		verseny.date = element.getAttribute("idõpont");
-		verseny.id = element.getAttribute("id");
-		verseny.name = element.getAttribute("név");
-		return verseny;
+		race.place = element.getAttribute("helyszín");
+		race.date = element.getAttribute("idõpont");
+		race.id = element.getAttribute("id");
+		race.name = element.getAttribute("név");
+		return race;
 	}
 
 }

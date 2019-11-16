@@ -34,13 +34,13 @@ public class Importer {
 	}
 
 	public static Importer create(Node node) {
-		Importer beszallito = new Importer();
+		Importer importer = new Importer();
 
 		Element element = (Element) node;
-		beszallito.id = element.getAttribute("id");
-		beszallito.name = element.getAttribute("név");
-		beszallito.phoneNumber = element.getAttribute("telefonszám");
-		return beszallito;
+		importer.id = element.getAttribute("id");
+		importer.name = element.getAttribute("név");
+		importer.phoneNumber = element.getAttribute("telefonszám");
+		return importer;
 	}
 
 }

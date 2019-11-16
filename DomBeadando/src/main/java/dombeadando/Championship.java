@@ -97,14 +97,14 @@ public class Championship {
 
 		Championship championship = new Championship(document, cars, connectors, importers, races, racers, teams);
 
-		cars.forEach(car -> car.setVersenyzo(championship.getVersenyzoById(car.getId())));
-		racers.forEach(racer -> racer.setCsapat(championship.getTeamById(racer.getId())));
-		connectors.forEach(connector -> connector.setBeszallito(championship.getConnectorById(connector.getIdb())));
-		connectors.forEach(connector -> connector.setCsapat(championship.getTeamById(connector.getIdcs())));
+		cars.forEach(car -> car.setRacer(championship.getRacerById(car.getId())));
+		racers.forEach(racer -> racer.setTTeam(championship.getTeamById(racer.getId())));
+		connectors.forEach(connector -> connector.setImporter(championship.getConnectorById(connector.getIdb())));
+		connectors.forEach(connector -> connector.setTeam(championship.getTeamById(connector.getIdcs())));
 		return championship;
 	}
 
-	public Racer getVersenyzoById(String id) {
+	public Racer getRacerById(String id) {
 		return racers.stream().filter(racer -> racer.getId().equals(id)).findFirst().orElseGet(Racer::new);
 	}
 
@@ -123,7 +123,7 @@ public class Championship {
 		element.setAttribute("lóerõ", car.getHorsepower());
 		element.setAttribute("rendszam", car.getLicensePlate());
 		element.setAttribute("típus", car.getType());
-		element.setAttribute("id", car.getVersenyzo().getId());
+		element.setAttribute("id", car.getRacer().getId());
 
 		root.getDocumentElement().appendChild(element);
 		cars.add(car);
@@ -131,8 +131,8 @@ public class Championship {
 
 	public void addConnector(Connector connector) {
 		Element element = root.createElement(CONNECTOR_TAG);
-		element.setAttribute("idb", connector.getBeszallito().getId());
-		element.setAttribute("idcs", connector.getCsapat().getId());
+		element.setAttribute("idb", connector.getImporter().getId());
+		element.setAttribute("idcs", connector.getTeam().getId());
 
 		root.getDocumentElement().appendChild(element);
 		connectors.add(connector);
@@ -164,7 +164,7 @@ public class Championship {
 		element.setAttribute("id", racer.getId());
 		element.setAttribute("név", racer.getName());
 		element.setAttribute("csapat", racer.getTeam());
-		element.setAttribute("idcs", racer.getCsapat().getId());
+		element.setAttribute("idcs", racer.getTTeam().getId());
 
 		root.getDocumentElement().appendChild(element);
 		racers.add(racer);
@@ -234,7 +234,7 @@ public class Championship {
 		return null;
 	}
 
-	public Team searchCsapatByBeszallito(String id) {
+	public Team searchTeamByImporter(String id) {
 		for (Connector connector : connectors) {
 			if (connector.getIdb().equals(id)) {
 				for (Team team : teams) {
@@ -245,7 +245,7 @@ public class Championship {
 	return null;
 	}
 
-	public Importer searchBeszallitoByCsapat(String id) {
+	public Importer searchImporterByTeam(String id) {
 		for (Connector connector : connectors) {
 			if (connector.getIdcs().equals(id)) {
 				for (Importer importer : importers) {
@@ -256,7 +256,7 @@ public class Championship {
 	return null;
 	}
 
-	public Racer searchVersenyzoByCsapat(String id) {
+	public Racer searchRacerByTeam(String id) {
 		for (Team team : teams) {
 			if (team.getId().equals(id)) {
 				for (Racer racer : racers) {
@@ -267,7 +267,7 @@ public class Championship {
 		return null;
 	}
 
-	public Team searchCsapatByVersenyzo(String id) {
+	public Team searchTeamByRacer(String id) {
 		for (Racer racer : racers) {
 			if (racer.getId().equals(id)) {
 				for (Team team : teams) {

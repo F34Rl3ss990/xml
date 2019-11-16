@@ -5,49 +5,49 @@ import org.w3c.dom.Node;
 
 public class Connector {
 
-	private String idb;
-	private String idcs;
-	private Team csapat;
-	private Importer beszallito;
+	private String idI;
+	private String idT;
+	private Team team;
+	private Importer importer;
 
 	public String getIdb() {
-		return idb;
+		return idI;
 	}
 
 	public void setIdb(String idb) {
-		this.idb = idb;
+		this.idI = idb;
 	}
 
 	public String getIdcs() {
-		return idcs;
+		return idT;
 	}
 
 	public void setIdcs(String idcs) {
-		this.idcs = idcs;
+		this.idT = idcs;
 	}
 
-	public Team getCsapat() {
-		return csapat;
+	public Team getTeam() {
+		return team;
 	}
 
-	public void setCsapat(Team csapat) {
-		this.csapat = csapat;
+	public void setTeam(Team team) {
+		this.team = team;
 	}
 
-	public Importer getBeszallito() {
-		return beszallito;
+	public Importer getImporter() {
+		return importer;
 	}
 
-	public void setBeszallito(Importer beszallito) {
-		this.beszallito = beszallito;
+	public void setImporter(Importer importer) {
+		this.importer = importer;
 	}
 
 	public static Connector create(Node node) {
-		Connector kapcsolo = new Connector();
+		Connector connector = new Connector();
 
 		Element element = (Element) node;
-		kapcsolo.idb = element.getAttribute("idb");
-		kapcsolo.idcs = element.getAttribute("idcs");
-		return kapcsolo;
+		connector.idI = element.getAttribute("idb");
+		connector.idT = element.getAttribute("idcs");
+		return connector;
 	}
 }

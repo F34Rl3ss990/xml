@@ -34,13 +34,13 @@ public class Team {
 	}
 
 	public static Team create(Node node) {
-		Team csapat = new Team();
+		Team team = new Team();
 
 		Element element = (Element) node;
-		csapat.id = element.getAttribute("id");
-		csapat.name = element.getAttribute("név");
-		csapat.worldChampionshipNumber = element.getAttribute("világbajnoki_cím");
-		return csapat;
+		team.id = element.getAttribute("id");
+		team.name = element.getAttribute("név");
+		team.worldChampionshipNumber = element.getAttribute("világbajnoki_cím");
+		return team;
 	}
 
 }

@@ -147,7 +147,7 @@ public class Dom {
 					System.out.println("Csapat ID-je: ");
 					String idCS = sc.nextLine();
 					try {
-						racer.setCsapat(championship.teamId(idCS));
+						racer.setTTeam(championship.teamId(idCS));
 					} catch (Exception e) {
 						System.out.println("Nincs ilyen idvel rendelkezõ csapat!");
 						break;
@@ -163,7 +163,7 @@ public class Dom {
 					System.out.println("ID: ");
 					String idK = sc.nextLine();
 					try {
-						car.setVersenyzo(championship.racerId(idK));
+						car.setRacer(championship.racerId(idK));
 					} catch (Exception e) {
 						System.out.println("Nincs ilyen idvel rendelkezõ versenyzõ!");
 						break;
@@ -200,7 +200,7 @@ public class Dom {
 					System.out.println("Beszállító: ");
 					String connectorb = sc.nextLine();
 					try {
-						connector.setBeszallito(championship.importerId(connectorb));
+						connector.setImporter(championship.importerId(connectorb));
 					} catch (Exception e) {
 						System.out.println("Nincs ilyen idvel rendelkezõ beszállító!");
 						break;
@@ -209,7 +209,7 @@ public class Dom {
 					System.out.println("Csapat: ");
 					String connectorcs = sc.nextLine();
 					try {
-						connector.setCsapat(championship.teamId(connectorcs));
+						connector.setTeam(championship.teamId(connectorcs));
 					} catch (Exception e) {
 						System.out.println("Nincs ilyen idvel rendelkezõ csapat!");
 						break;
@@ -292,36 +292,36 @@ public class Dom {
 					String asd6 = sc.nextLine();
 					System.out.println("Versenyzõ ID: ");
 					String racerID3 = sc.nextLine();
-					System.out.println("Id: " + championship.searchCsapatByVersenyzo(racerID3).getId());
-					System.out.println("Név: " +championship.searchCsapatByVersenyzo(racerID3).getName());
-					System.out.println("Világbajnoki címek száma: " +championship.searchCsapatByVersenyzo(racerID3).getWorldChampionshipNumber());
-					championship.searchCsapatByVersenyzo(racerID3);
+					System.out.println("Id: " + championship.searchTeamByRacer(racerID3).getId());
+					System.out.println("Név: " +championship.searchTeamByRacer(racerID3).getName());
+					System.out.println("Világbajnoki címek száma: " +championship.searchTeamByRacer(racerID3).getWorldChampionshipNumber());
+					championship.searchTeamByRacer(racerID3);
 					break;
 				case 7:
 					String asd7 = sc.nextLine();
 					System.out.println("Csapat ID: ");
 					String teamID2 = sc.nextLine();
-					System.out.println("Id: " + championship.searchVersenyzoByCsapat(teamID2).getId());
-					System.out.println("Csapat Id: " + championship.searchVersenyzoByCsapat(teamID2).getIdcs());
-					System.out.println("Név: " + championship.searchVersenyzoByCsapat(teamID2).getName());
-					System.out.println("Csapat: " + championship.searchVersenyzoByCsapat(teamID2).getTeam());
+					System.out.println("Id: " + championship.searchRacerByTeam(teamID2).getId());
+					System.out.println("Csapat Id: " + championship.searchRacerByTeam(teamID2).getIdcs());
+					System.out.println("Név: " + championship.searchRacerByTeam(teamID2).getName());
+					System.out.println("Csapat: " + championship.searchRacerByTeam(teamID2).getTeam());
 					
 					break;
 				case 8:
 					String asd8 = sc.nextLine();
 					System.out.println("Beszállító ID: ");
 					String importerID2 = sc.nextLine();
-					System.out.println("Id: " +championship.searchCsapatByBeszallito(importerID2).getId());
-					System.out.println("Név: " + championship.searchCsapatByBeszallito(importerID2).getName());
-					System.out.println("Világbajnoki címek száma: " + championship.searchCsapatByBeszallito(importerID2).getWorldChampionshipNumber());
+					System.out.println("Id: " +championship.searchTeamByImporter(importerID2).getId());
+					System.out.println("Név: " + championship.searchTeamByImporter(importerID2).getName());
+					System.out.println("Világbajnoki címek száma: " + championship.searchTeamByImporter(importerID2).getWorldChampionshipNumber());
 					break;
 				case 9:
 					String asd9 = sc.nextLine();
 					System.out.println("Csapat ID: ");
 					String teamID3 = sc.nextLine();
-					System.out.println("Id: " + championship.searchBeszallitoByCsapat(teamID3).getId());
-					System.out.println("Név: " + championship.searchBeszallitoByCsapat(teamID3).getName());
-					System.out.println("Telefonszám: " + championship.searchBeszallitoByCsapat(teamID3).getPhoneNumber());
+					System.out.println("Id: " + championship.searchImporterByTeam(teamID3).getId());
+					System.out.println("Név: " + championship.searchImporterByTeam(teamID3).getName());
+					System.out.println("Telefonszám: " + championship.searchImporterByTeam(teamID3).getPhoneNumber());
 					break;
 				case 0:
 					break;
