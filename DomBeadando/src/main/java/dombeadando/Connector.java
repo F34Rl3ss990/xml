@@ -5,24 +5,24 @@ import org.w3c.dom.Node;
 
 public class Connector {
 
-	private String idI;
-	private String idT;
+	private int idI;
+	private int idT;
 	private Team team;
 	private Importer importer;
 
-	public String getIdb() {
+	public int getIdb() {
 		return idI;
 	}
 
-	public void setIdb(String idb) {
+	public void setIdb(int idb) {
 		this.idI = idb;
 	}
 
-	public String getIdcs() {
+	public int getIdcs() {
 		return idT;
 	}
 
-	public void setIdcs(String idcs) {
+	public void setIdcs(int idcs) {
 		this.idT = idcs;
 	}
 
@@ -46,8 +46,8 @@ public class Connector {
 		Connector connector = new Connector();
 
 		Element element = (Element) node;
-		connector.idI = element.getAttribute("idb");
-		connector.idT = element.getAttribute("idcs");
+		connector.idI = Integer.parseInt(element.getAttribute("idb"));
+		connector.idT = Integer.parseInt(element.getAttribute("idcs"));
 		return connector;
 	}
 }

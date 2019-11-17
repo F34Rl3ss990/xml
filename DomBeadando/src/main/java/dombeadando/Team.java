@@ -6,8 +6,8 @@ import org.w3c.dom.Node;
 public class Team {
 
 	private String name;
-	private String worldChampionshipNumber;
-	private String id;
+	private int worldChampionshipNumber;
+	private int id;
 
 	public String getName() {
 		return name;
@@ -17,19 +17,19 @@ public class Team {
 		this.name = name;
 	}
 
-	public String getWorldChampionshipNumber() {
+	public int getWorldChampionshipNumber() {
 		return worldChampionshipNumber;
 	}
 
-	public void setWorldChampionshipNumber(String worldChampionshipNumber) {
+	public void setWorldChampionshipNumber(int worldChampionshipNumber) {
 		this.worldChampionshipNumber = worldChampionshipNumber;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -37,9 +37,9 @@ public class Team {
 		Team team = new Team();
 
 		Element element = (Element) node;
-		team.id = element.getAttribute("id");
+		team.id = Integer.parseInt(element.getAttribute("id"));
 		team.name = element.getAttribute("név");
-		team.worldChampionshipNumber = element.getAttribute("világbajnoki_cím");
+		team.worldChampionshipNumber = Integer.parseInt(element.getAttribute("világbajnoki_cím"));
 		return team;
 	}
 
